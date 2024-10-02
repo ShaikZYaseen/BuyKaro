@@ -1,5 +1,6 @@
 import {ownerModel} from "../models/owner.models.js"
 import { ApiResponse } from "../utils/apiResponse.js"
+
 import { ApiError } from "../utils/apiError.js"
 import { asyncHandler } from "../utils/asyncHandler.js"
 
@@ -7,7 +8,7 @@ const createOwner = asyncHandler(async(req,res)=>{
     const {fullName,email,password} = req.body;
     const currOwners = ownerModel.find();
     if(currOwners.length>0){
-        throw new ApiError(401,"You are unauthorized");
+        throw new ApiError(401,"You are not authorized");
     }
     const owner = await ownerModel.create({fullName,email,password});
     if(!owner){
