@@ -14,7 +14,7 @@ const createOwner = asyncHandler(async(req,res)=>{
     if(!owner){
         throw new ApiError(400,"Something went wrong!");
     }
-    res.send(200).json(new ApiResponse(owner,"Owner created successfully!"));
+    res.send(200).json(new ApiResponse(owner,"created successfully!"));
 
 })
 
